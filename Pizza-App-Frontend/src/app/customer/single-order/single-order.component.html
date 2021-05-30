@@ -1,0 +1,47 @@
+<notifier-container></notifier-container>
+<section class="status">
+    <div class="container">
+        <div class="status-box w-100">
+            <div class="d-flex align-items-center justify-content-between mb-5">
+                <span class="left-header">Track Delivery Status</span>
+                <h6 class="bg-white py-1 rounded-pill px-4 
+                    text-success">
+                    {{ id }}
+                </h6>
+            </div>
+
+            <ul>
+                <li class="status_line padding"
+                    data-status="Placed">
+                    <Span>
+                        Order Placed
+                    </Span>
+                </li>
+                <li class="status_line padding"
+                    data-status="Confirmed">
+                    <Span>
+                        Order Confirmation
+                    </Span>
+                </li>
+                <li class="status_line padding"
+                    data-status="Prepared">
+                    <Span>
+                        Order Preparation
+                    </Span>
+                </li>
+                <li class="status_line padding"
+                    data-status="Delivered">
+                    <Span>
+                        Order Out For Delivery
+                    </Span>
+                </li>
+                <li class="status_line"
+                    data-status="completed">
+                    <Span>
+                        Order Completed
+                    </Span>
+                </li>
+            </ul>
+        </div>
+    </div>
+</section>

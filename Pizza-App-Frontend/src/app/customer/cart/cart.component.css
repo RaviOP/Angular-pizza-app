@@ -1,0 +1,44 @@
+.empty-cart{
+    margin-top: 100px;
+}
+.empty-cart-heading{
+    font-size: 2rem;
+    font-weight: 800;
+}
+
+.empty-cart-image {
+    margin: auto;
+    max-width: 520px;
+}
+
+.cart-list {
+    height: 100%;
+    padding-top: 50px;
+    background-color: #f8f8f8;
+}
+
+.cart-pizza-image {
+    width: 15%;
+}
+
+.pizza-name {
+    display: block;
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+.order-summary {
+    font-size: 1.8rem;
+}
+
+.total-amount {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-right: 10px;
+}
+
+.total-price {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #fe5f1e;
+}

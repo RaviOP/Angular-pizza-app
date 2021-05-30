@@ -1,0 +1,48 @@
+<notifier-container></notifier-container>
+<section class="orderForm">
+    <div class="container">
+        <div class="row mt-5 border p-2 align-items-center">
+            <div class="col-md-6">
+                <div class="card text-center">
+                    <div class="card-header">
+                        Total Bill
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">Total Price: {{cartItems?.totalPrice}}</h5>
+                        <p class="card-text">Total Quantity: {{cartItems?.totalQuantity}}</p>
+                    </div>
+                    <div class="card-footer text-muted">
+                        
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 border p-4 mt-2">
+                <form [formGroup]="orderForm" (ngSubmit)="onSubmit()">
+                    <div class="text-center">
+                        <h1>Order Confirmation</h1>
+                    </div>
+                    <br>
+                    <div class="form-group">
+                        <label for="phone">Phone</label>
+                        <input type="number" class="form-control" id="phone" formControlName="phone">
+                        <span class="help-block"
+                            *ngIf="!orderForm.get('phone')?.valid && orderForm.get('phone')?.touched">
+                            Phone Number is Required
+                        </span>
+                    </div>
+                    <div class="form-group">
+                        <label for="address">Address</label>
+                        <textarea class="form-control" id="address" rows="3" formControlName="address"></textarea>
+                        <span class="help-block"
+                            *ngIf="!orderForm.get('address')?.valid && orderForm.get('address')?.touched">
+                            Address is Required
+                        </span>
+                    </div>
+                    <div class="text-center">
+                        <button class="btn btn-success" [disabled]="!orderForm.valid">Order</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>

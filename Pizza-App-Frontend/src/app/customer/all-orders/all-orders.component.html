@@ -1,0 +1,28 @@
+<section class="all-orders">
+    <div class="container">
+        <h2 class="text-center pt-2 text-muted">ALL ORDERS</h2>
+        <hr>
+        <div class="row">
+            <div class="col-sm-6 col-lg-4 my-1" *ngFor="let order of orders">
+                <div class="card text-center">
+                    <a [routerLink]="['/customer/order/',order._id]">
+                    <div class="card-header text-success">
+                        {{order._id}}
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">Phone: {{order.phone}}</h5>
+                        <p class="card-text">
+                            Address: {{order.address}}
+                            <br>
+                            Amount: ₹{{order.items.totalPrice}}
+                        </p>
+                    </div>
+                    <div class="card-footer text-muted">
+                        {{order.createdAt | date : 'medium'}}
+                    </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

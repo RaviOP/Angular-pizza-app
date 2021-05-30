@@ -1,0 +1,43 @@
+<nav class="navbar navbar-expand-sm navbar-light bg-light">
+    <div class="container">
+        <div class="navbar-brand">
+            <a routerLink=""><img src="../../assets/logo.png" alt="Logo"></a>
+        </div>
+        <button class="navbar-toggler" data-toggle="collapse"
+            data-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav align-items-center text-center ml-auto">
+                <li class="nav-item">
+                    <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" class="nav-link">Menu</a>
+                </li>
+                <li class="nav-item" *ngIf="userIsAuthenticated && !userIsAdmin">
+                    <a routerLink="/customer/orders" routerLinkActive="active"
+                        class="nav-link">Orders</a>
+                </li>
+                <li class="nav-item" *ngIf="userIsAuthenticated && userIsAdmin">
+                    <a routerLink="/admin/orders" routerLinkActive="active"
+                        class="nav-link">Orders</a>
+                </li>
+                <li class="nav-item" *ngIf="!userIsAuthenticated">
+                    <a routerLink="/auth/login" routerLinkActive="active" class="nav-link">Login</a>
+                </li>
+                <li class="nav-item" *ngIf="!userIsAuthenticated">
+                    <a routerLink="/auth/signup" routerLinkActive="active" class="nav-link">Register</a>
+                </li>
+                <li class="nav-item mr-2" *ngIf="userIsAuthenticated">
+                    <a (click)="logout()" style="cursor: pointer;" class="nav-link">Logout</a>
+                </li>
+                <br>
+                <li class="nav-item" *ngIf="userIsAuthenticated">
+                    <a routerLink="/customer/cart" routerLinkActive="active" class="cart rounded-pill px-3 py-2">
+                        <a id="cartCounter" class="pr-2">{{totalQuantity}}</a>
+                        <img src="../../assets/cart.png">
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>

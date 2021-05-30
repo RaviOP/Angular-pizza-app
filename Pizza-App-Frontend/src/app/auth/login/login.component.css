@@ -1,0 +1,16 @@
+.login {
+    height: 90vh;
+    box-sizing: border-box;
+    background-color: #f8f8f8;
+}
+
+.row {
+    height: 90vh;
+}
+
+input.ng-invalid.ng-touched{
+    border: 1px solid red;
+}
+.help-block {
+    color: red;
+}

@@ -1,0 +1,72 @@
+<section class="editItem">
+    <div class="container">
+        <div class="row" *ngIf="menu|async;else loading">
+            <div class="col align-self-center">
+                <form class="form" [formGroup]="menuEditForm"
+                    (ngSubmit)="onSubmit()" enctype="multipart/form-data">
+                    <h1>Edit Item</h1>
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input type="text" class="form-control" id="name"
+                            formControlName="name">
+                        <span class="help-block"
+                            *ngIf="!menuEditForm.get('name')?.valid && menuEditForm.get('name')?.touched">
+                            Name is Required
+                        </span>
+                    </div>
+                    <div class="form-group">
+                        <label for="size">Size</label>
+                        <input type="text" class="form-control" id="size"
+                            formControlName="size">
+                        <span class="help-block"
+                            *ngIf="!menuEditForm.get('size')?.valid && menuEditForm.get('size')?.touched">
+                            Size is Required
+                        </span>
+                    </div>
+                    <div class="form-group">
+                        <label for="price">Price</label>
+                        <input type="number" class="form-control" id="price"
+                            formControlName="price">
+                        <span class="help-block"
+                            *ngIf="!menuEditForm.get('price')?.valid && menuEditForm.get('price')?.touched">
+                            Price is Required
+                        </span>
+                    </div>
+                    <div class="form-group text-center">
+                        <div class="image-preview"
+                            *ngIf="imagePreview !== '' && imagePreview  && menuEditForm.get('image')!.valid">
+                            <img [src]="imagePreview"
+                                [alt]="menuEditForm.value.title">
+                        </div>
+                        <input type="file" #filePicker
+                            (change)="onImagePicked($event)">
+                        <div class="centered">
+                            <button class="btn btn-outline-info" type="button"
+                                (click)="filePicker.click()">Pick
+                                Image</button>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="text-center">
+                        <div class="text-center">
+                            <button class="btn btn-outline-success mr-5" [disabled]="!menuEditForm.valid">
+                                Save
+                            </button>
+                            <button class="btn btn-outline-danger ml-5" routerLink="/">
+                                Cancel
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <ng-template #loading>
+        <div class="loader d-flex justify-content-center align-items-center">
+            <div class="spinner-border text-success" role="status" style="
+            width: 4rem;height: 4rem;">
+                <span class="sr-only">Loading...</span>
+            </div>
+        </div>
+    </ng-template>
+</section>

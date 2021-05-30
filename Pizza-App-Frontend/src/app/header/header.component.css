@@ -1,0 +1,30 @@
+.nav-item a:hover {
+    color: #fe5f1e;
+}
+.nav-item a.active {
+    color: #fe5f1e !important;
+}
+.navbar{
+    background-color: white !important;
+}
+
+.cart {
+    background-color: #fe5f1e;
+}
+
+#cartCounter{
+    color: #fff;
+    text-decoration: none;
+}
+
+a:hover{
+    text-decoration: none;
+}
+
+.cart:hover{
+    background-color: #b23301;
+}
+
+@media (min-width: 576px) {
+    
+}

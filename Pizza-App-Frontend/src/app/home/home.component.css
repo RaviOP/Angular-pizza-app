@@ -1,0 +1,29 @@
+.order-button{
+    background-color: #fe5f1e;
+}
+
+h5{
+    font-size: 1.5rem;
+    color: rgb(161, 161, 161);
+}
+h1{
+    font-size: 3.5rem;
+}
+
+.hero {
+    background-color: #f8f8f8;
+}
+
+@media (max-width: 576px) {
+    h5{
+        font-size: 1rem;
+        text-align: center;
+    }
+    h1{
+        font-size: 2.5rem;
+        text-align: center;
+    }
+    .orderButton{
+        text-align: center;
+    }
+}

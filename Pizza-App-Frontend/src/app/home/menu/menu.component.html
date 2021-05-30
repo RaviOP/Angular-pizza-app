@@ -1,0 +1,61 @@
+<notifier-container></notifier-container>
+<section class="menu mt-5">
+    <div class="container">
+        <h5><b>All Pizzas</b></h5>
+        <div class="row">
+            <div class="col-sm-12 col-md-6 col-lg-4 col-xl-3"
+                *ngFor="let menu of menus;let i = index">
+                <div class="py-5 text-center">
+                    <img class="img-fluid image-width mb-3"
+                        [src]="menu.image" alt="Pizza">
+                    <div class="text-center">
+                        <h4 class="mb-4">
+                            {{menu.name}}
+                        </h4>
+                        <span
+                            class="size py-2 px-4 rounded-pill text-uppercase">
+                            {{menu.size}}
+                        </span>
+                        <div class="mt-4">
+                            <span
+                                class="price align-self-center font-weight-bold">
+                                ₹{{menu.price}}
+                            </span>
+                            <div class=" mt-3 align-content-center">
+                                <button class="add-to-cart rounded-pill" (click)="onAdd(menu)">
+                                    <span>+</span>
+                                    <span class="ml-4">Add</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div *ngIf="userIsAuthenticated && userIsAdmin">
+                        <hr>
+                        <div class="row gx-5 px-5">
+                            <div class="col">
+                                <button
+                                    class="btn btn-outline-success w-100"
+                                    [routerLink]="['/edit-item/',menu._id]">Edit</button>
+                            </div>
+                            <div class="col">
+                                <button
+                                    class="btn btn-outline-danger w-100"
+                                    (click)="onDelete(menu._id)">Delete</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div *ngIf="userIsAuthenticated && userIsAdmin">
+                <button title="New Pizza" class="circle-add-button btn btn-success"
+                    routerLink="/new-item">
+                    <img src="../../../assets/plus-icon.svg" alt="+">
+                </button>
+            </div>
+
+        </div>
+
+    </div>
+</section>

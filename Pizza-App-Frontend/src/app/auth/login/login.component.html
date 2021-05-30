@@ -1,0 +1,47 @@
+<section class="login">
+    <div class="container">
+        <div class="row">
+            <div class="col align-self-center">
+                <form class="form" #form="ngForm" (submit)="onLogin(form)">
+                    <h1>LOGIN</h1>
+                    <div class="alert alert-danger alert-dismissible fade show" role="alert" *ngIf="error">
+                        {{errorMessage}}
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" class="form-control" id="email"
+                            ngModel
+                            name="email" 
+                            #emailInput="ngModel" required email>
+                        <span class="help-block" *ngIf="!emailInput.valid && emailInput.touched">
+                            Please Enter a Valid Email
+                        </span>
+                    </div>
+                    <div class="form-group">
+                        <label>Password</label>
+                        <div class="input-group">
+                            <input type="password" class="form-control" id="password" name="password" #passwordInput="ngModel" ngModel required
+                                minlength="6">
+                        </div>
+                        <span class="help-block" *ngIf="!passwordInput.valid && passwordInput.touched">
+                            Please Enter a Valid Password
+                        </span>
+                    </div>
+                    <br>
+                    <div class="text-center">
+                        <button class="btn btn-success" [disabled]="!form.valid">
+                            Login
+                        </button>
+                    </div>
+                    <div class="text-center mt-2">
+                        <a routerLink="/signup" class="alternative">Don't have
+                            An Account?</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>

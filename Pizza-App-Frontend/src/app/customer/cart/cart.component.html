@@ -1,0 +1,58 @@
+<div class="empty-cart" *ngIf="!cartItems">
+    <div class="container mx-auto text-center">
+        <h1 class="mb-2 empty-cart-heading">Cart Empty 😞 </h1>
+        <p class="">
+            You Probably Haven't Ordered a Pizza Yet.
+            <br>
+            To Order a Pizza,Go To Main Page
+        </p>
+        <div class="empty-cart-image">
+            <img class="img-fluid" src="../../../assets/empty-cart.png" alt="Empty-Cart">
+        </div>
+        <div class="mt-5">
+            <a routerLink="/"
+                class="px-4 py-2 rounded-pill text-white font-weight-bold btn cart">
+                Go Back
+            </a>
+        </div>
+    </div>
+</div>
+
+<div class="cart-list pb-5" *ngIf="cartItems">
+    <div class="container mx-auto">
+        <div class="row align-items-center">
+            <img src="../../../assets/cart-black.png">
+            <div class="pl-2 mb-0 text-muted order-summary">Order Summary</div>
+        </div>
+        <hr>
+
+        <div class="pizza-list">
+
+            <div class="d-flex align-items-center mt-5"
+                *ngFor="let pizza of objectValues(cartItems.items)">
+
+                <img [src]="pizza.item.image" alt="Pizza Image"
+                    class="img-fluid cart-pizza-image">
+
+                <div class="ml-2 flex-grow-1">
+                    <span class="mb-0 pizza-name">
+                        {{ pizza.item.name }}
+                    </span>
+                    <small class="text-muted">
+                        {{ pizza.item.size | uppercase}}
+                    </small>
+                </div>
+                <span class="flex-grow-1">{{ pizza.quantity }} Pcs</span>
+                <span class="font-weight-bold">₹{{ pizza.quantity * pizza.item.price }}</span>
+            </div>
+        </div>
+        <hr>
+        <div class="text-right">
+            <span class="total-amount">Total Amount:</span>
+            <span class="total-price">₹{{cartItems.totalPrice}}</span>
+            <br>
+            <button class="btn btn-success mt-5" routerLink="/customer/order-confirmation">Proceed to Order</button>
+        </div>
+
+    </div>
+</div>

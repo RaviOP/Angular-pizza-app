@@ -1,0 +1,59 @@
+<section class="register">
+    <div class="container">
+        <div class="row">
+            <div class="col align-self-center">
+                <form class="form" [formGroup]="form" (ngSubmit)="onSubmit()">
+                    <h1>REGISTER</h1>
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input type="text" class="form-control" id="name"
+                            formControlName="name">
+                        <span class="help-block"
+                            *ngIf="!form.get('name')?.valid && form.get('name')?.touched">
+                            This Field is Required
+                        </span>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" class="form-control" id="email"
+                            formControlName="email">
+                        <div *ngIf="form.controls.email.invalid">
+                            <span class="help-block"
+                                *ngIf="form.get('email')?.touched && form.controls.email.hasError('required')">
+                                Email is Required
+                            </span>
+                            <span class="help-block"
+                                *ngIf="form.controls.email.hasError('email')">
+                                Email is not Valid
+                            </span>
+                            <span class="help-block"
+                                *ngIf="form.controls.email.hasError('duplicate')">
+                                Email is Already in Use
+                            </span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <input type="password" class="form-control"
+                            id="password" formControlName="password">
+                        <span class="help-block"
+                            *ngIf="!form.get('password')?.valid && form.get('password')?.touched">
+                            Password Length must be of 6 Characters
+                        </span>
+                    </div>
+                    <br>
+                    <div class="text-center">
+                        <button class="btn btn-success"
+                            [disabled]="!form.valid">
+                            Sign Up
+                        </button>
+                    </div>
+                    <div class="text-center mt-2">
+                        <a routerLink="/login" class="alternative">Already have
+                            An Account?</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>

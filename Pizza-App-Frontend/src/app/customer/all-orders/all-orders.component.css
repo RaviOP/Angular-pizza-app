@@ -1,0 +1,14 @@
+.all-orders{
+    height: 90vh;
+    background-color: #f8f8f8;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+    box-shadow: 0 7px 30px -10px rgba(150,170,180,0.5);
+}
+
+a:hover {
+    border: 1px solid orangered;
+}

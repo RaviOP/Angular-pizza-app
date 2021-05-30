@@ -1,0 +1,57 @@
+<notifier-container></notifier-container>
+<section class="all-orders">
+    <div class="container">
+        <h2 class="text-center pt-2 text-muted">ALL ORDERS</h2>
+        <hr>
+        <div class="row" *ngIf="orders.length > 0">
+            <div class="col-sm-6 col-lg-4 my-1" *ngFor="let order of orders">
+                <div class="card text-center cards">
+                    <div class="card-header text-success">
+                        {{order._id}}
+                    </div>
+                    <div class="card-body">
+                        <div class="card-text">
+                            Name: {{order.customerId.name}}
+                            <br>
+                            Email: {{order.customerId.email}}
+                            <br>
+                            Phone: {{order.phone}}
+                            <br>
+                            Address: {{order.address}}
+                            <br>
+                            Amount: ₹{{order.items.totalPrice}}
+                        </div>
+                    </div>
+                    <div class="card-footer text-muted">
+                        {{order.createdAt | date : 'medium'}}
+                        <hr>
+                        <form>
+                            <select class="custom-select"
+                                (change)="selectOptionChanged($event,order._id)">
+                                <option value="Placed" [selected]="order.status === 'Placed' ? true : false">
+                                    Placed
+                                </option>
+                                <option value="Confirmed" [selected]="order.status === 'Confirmed' ? true : false">
+                                    Confirmed
+                                </option>
+                                <option value="Prepared" [selected]="order.status === 'Prepared' ? true : false">
+                                    Prepared
+                                </option>
+                                <option value="Delivered" [selected]="order.status === 'Delivered' ? true : false">
+                                    Delivered
+                                </option>
+                                <option value="Completed" [selected]="order.status === 'Completed' ? true : false">
+                                    Completed
+                                </option>
+                            </select>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row" *ngIf="orders.length <= 0">
+            <div class="col text-center text-muted pt-5">No Pending Orders Yet!</div>
+        </div>
+    </div>
+</section>

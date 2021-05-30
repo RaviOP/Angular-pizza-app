@@ -1,0 +1,50 @@
+.size {
+    background-color: rgb(231, 231, 231);
+}
+
+.add-to-cart{
+    border: 1px solid #fe5f1e;
+    padding: 10px 20px;
+    color: #fe5f1e;
+    background-color: white;
+    font-size: 1.2rem;
+}
+.add-to-cart:hover{
+    color: white;
+    background-color: #fe5f1e;
+}
+.add-to-cart:focus{
+    outline: none;
+}
+
+
+.price {
+    font-size: 1.3rem;
+}
+
+.image-width{
+    width: 60%;
+}
+
+.circle-add-button{
+    position: absolute;
+    position: fixed;
+    height: 50px;
+    width: 50px;
+    right: 5rem;
+    bottom: 5rem;
+    border-radius: 50%;
+}
+
+.notifier{
+    position: absolute !important;
+    top: 80px;
+    right: 10px;
+}
+
+@media (max-width: 576px) { 
+    .circle-add-button {
+        right: 2rem;
+        bottom: 2rem;
+    }
+}
