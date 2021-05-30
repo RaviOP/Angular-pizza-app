@@ -9,7 +9,7 @@
 	"scripts": {
 		"start": "node Pizza-App-Backend/server",
 		"dev": "env-cmd -f ./Pizza-App-Backend/config/.env nodemon Pizza-App-Backend/server",
-		"heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix Pizza-App-Frontend && npm run build --prod --prefix Pizza-App-Frontend"
+		"heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --force --prefix Pizza-App-Frontend && npm run build --prod --prefix Pizza-App-Frontend"
 	},
 	"keywords": [],
 	"author": "",
