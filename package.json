@@ -3,10 +3,13 @@
 	"version": "1.0.0",
 	"description": "",
 	"main": "server.js",
+	"engines": {
+		"node": "15.x"
+	},
 	"scripts": {
 		"start": "node Pizza-App-Backend/server",
 		"dev": "env-cmd -f ./Pizza-App-Backend/config/.env nodemon Pizza-App-Backend/server",
-		"heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix Pizza-App-Frontend && npm run build --prefix Pizza-App-Frontend"
+		"heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix Pizza-App-Frontend && npm run build --prod --prefix Pizza-App-Frontend"
 	},
 	"keywords": [],
 	"author": "",
