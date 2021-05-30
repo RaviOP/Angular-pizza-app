@@ -2,8 +2,8 @@ const Menu = require("../models/Menu");
 
 let getMenus = async (req, res) => {
 	try {
-		const menu = await Menu.find({}).cache({ key: "menu" });
-		// const menu = await Menu.find({});
+		// const menu = await Menu.find({}).cache({ key: "menu" });
+		const menu = await Menu.find({});
 		res.status(200).send(menu);
 	} catch (error) {
 		res.status(500).send(error.error);

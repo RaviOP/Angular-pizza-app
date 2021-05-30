@@ -2,8 +2,8 @@ const User = require("../models/User");
 
 let readUser = async (req, res) => {
 	try {
-		// const user = await User.findById(req.params.id)
-		const user = await User.findById(req.params.id).cache({ key: req.params.id });
+		const user = await User.findById(req.params.id);
+		// const user = await User.findById(req.params.id).cache({ key: req.params.id });
 		res.status(200).send(user);
 	} catch (error) {
 		res.status(500).send(error.message);
