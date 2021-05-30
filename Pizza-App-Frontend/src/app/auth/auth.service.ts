@@ -23,7 +23,8 @@ export class AuthService {
     private cartService: CartService
   ) {
     // this.ROOT_URL = 'https://ravi-pizza-api.herokuapp.com/api/users'
-    this.ROOT_URL = 'http://localhost:3000/api/users';
+    // this.ROOT_URL = 'http://localhost:3000/api/users';
+    this.ROOT_URL = '/api/users';
   }
 
   public getLoginErrors(): Subject<string> {

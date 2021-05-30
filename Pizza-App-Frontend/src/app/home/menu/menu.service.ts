@@ -14,7 +14,8 @@ export class MenuService {
 
   constructor(private http: HttpClient, private router: Router) {
     // this.ROOT_URL = 'https://ravi-pizza-api.herokuapp.com/api/menus'
-    this.ROOT_URL = 'http://localhost:3000/api/menus';
+    // this.ROOT_URL = 'http://localhost:3000/api/menus';
+    this.ROOT_URL = '/api/menus';
   }
 
   getMenuUpdates() {

@@ -14,7 +14,8 @@ export class OrderService {
 
   constructor(private http: HttpClient, private router: Router) {
     // this.ROOT_URL = `https://ravi-pizza-api.herokuapp.com/api/orders`
-    this.ROOT_URL = 'http://localhost:3000/api/orders';
+    // this.ROOT_URL = 'http://localhost:3000/api/orders';
+    this.ROOT_URL = '/api/orders';
   }
 
   getOrder(id: string) {
